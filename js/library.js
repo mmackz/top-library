@@ -1,3 +1,4 @@
+// Book class
 class Book {
    constructor(title, author, pages, read = false) {
       this.title = title;
@@ -7,6 +8,7 @@ class Book {
    }
 }
 
+// Library class
 class Library {
    constructor(books = []) {
       this.bookShelf = books;
@@ -16,8 +18,9 @@ class Library {
       this.bookShelf.push(book);
    }
 
-   removeBook(book) {
-      this.bookShelf.splice(this.bookShelf.indexOf(book), 1);
+   removeBook(title) {
+      const bookIndex = this.bookShelf.findIndex((book) => book.title === title);
+      this.bookShelf.splice(bookIndex, 1);
    }
 
    hasBook(title) {
