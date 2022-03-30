@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+   <script src="js/library.js" defer></script>
+   <script src="js/index.js" defer></script>
+   <title>TOP - Library</title>
+</head>
+<body>
+   <header>
+      <h1>Library</h1>
+   </header>
+   <form>
+
+      <div>
+         <label for="title">Title:</label>
+         <input type="text" name="title" id="title" placeholder="Title" required>
+      </div>
+
+      <div>
+         <label for="author">Author:</label>
+         <input type="text" name="author" id="author" placeholder="Author" required>
+      </div>
+
+      <div>
+         <label for="pages">Pages:</label>
+         <input type="number" name="pages" id="pages" placeholder="Pages" min="0" max="9999" required>
+      </div>
+
+      <div>
+         <label for="read">Read?</label>
+         <input type="checkbox" name="read" id="read">
+      </div>
+
+      <button type="submit">Submit</button>
+   </form>
+   <div class="books"></div>
+</body>
+</html>
