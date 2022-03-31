@@ -62,6 +62,7 @@ const newBookBtn = document.getElementById("popup-menu");
 const closeFormBtn = document.querySelector(".close-form");
 const resetBtn = document.getElementById("reset");
 const overlay = document.querySelector(".overlay");
+const resetConfirm = document.getElementById("reset-confirm");
 
 newBookBtn.addEventListener("click", (event) => {
    event.stopPropagation();
@@ -86,12 +87,21 @@ closeFormBtn.addEventListener("click", (event) => {
 });
 
 document.body.addEventListener("click", (event) => {
-   if (form.offsetParent) {
+   if (form.offsetParent || resetConfirm.offsetParent) {
       hideForm();
    }
 });
 
 resetBtn.addEventListener("click", (event) => {
+   event.stopPropagation();
+   resetConfirm.style.display = "block";
+   overlay.style.display = "block";
+   setTimeout(() => {
+      resetConfirm.classList.add("show-form");
+   }, 1);
+});
+
+resetConfirm.addEventListener("click", (event) => {
    event.stopPropagation();
    localStorage.clear();
    library = new Library();
@@ -101,9 +111,12 @@ resetBtn.addEventListener("click", (event) => {
 
 function hideForm(){
    form.classList.add("fade-out");
+   resetConfirm.classList.add("fade-out");
    overlay.style = "";
    setTimeout(() => {
       form.classList = "";
+      resetConfirm.classList = "";
       form.style = "";
+      resetConfirm.style = "";
    }, 350);
 }
