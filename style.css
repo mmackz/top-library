@@ -9,7 +9,8 @@
 body {
    width: 100%;
    height: 100%;
-   background: url(images/bg-img.jpg) no-repeat;
+   min-height: 100vh;
+   background: url(images/bg-img-compressed.webp) no-repeat;
    background-size: cover;
    font-family: "Poppins", sans-serif;
    color: #555666;
@@ -28,6 +29,8 @@ button {
    margin-right: 2rem;
    text-transform: uppercase;
    font-weight: 500;
+   cursor: pointer;
+   user-select: none;
    background: hsla(144, 64%, 61%, 1);
    background: linear-gradient(
       135deg,
@@ -49,6 +52,7 @@ button {
    );
    color: #fff;
    box-shadow: 2px 2px 10px #b6b6b6;
+   transition: box-shadow 300ms ease-in-out;
 }
 
 button#reset {
@@ -73,9 +77,26 @@ button#reset {
    );
 }
 
+button:hover, 
+button:active {
+   box-shadow: 0 0 15px #8ef39f;
+}
+
+button#reset:hover,
+button#reset:active {
+   box-shadow: 0 0 15px #ff5f5f;
+}
+
+header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background: #f7f3f6b9;
+}
+
 form {
    display: none;
-   position: absolute;
+   position: fixed;
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%) scale(0.2) rotateZ(90deg);
@@ -97,30 +118,183 @@ form {
 
 .overlay {
    display: none;
-   position: absolute;
+   position: fixed;
    top: 0;
    left: 0;
    height: 100%;
    width: 100%;
+   min-height: 100vh;
    background: #33333344;
+   z-index: 1;
 }
 
 .close-form {
    display: inline-block;
 }
 
-header {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   background: #f7f3f6b9;
-}
-
 .logo {
    display: flex;
    padding: 1rem 2rem;
+   user-select: none;
+}
+
+.logo > img {
+   width: 50px;
+   height: 53px;
 }
 
 .logo > h1 {
    margin-left: 1rem;
+}
+
+.books {
+   padding: 2rem;
+   margin: 0 auto;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 2rem;
+   justify-items: center;
+}
+
+@media (max-width: 1080px) {
+   .books {
+      grid-template-columns: repeat(2, 1fr);
+   }
+}
+
+@media (max-width: 720px) {
+   .books {
+      grid-template-columns: 1fr;
+   }
+}
+
+/* book cards */
+.book {
+   max-width: 100%;
+   width: 100%;
+   min-height: 214px;
+   display: flex;
+   flex-direction: column;
+   background: #fff;
+   padding: 1rem 3rem 1.5rem 2rem;
+   border-radius: 6px;
+   border-top: 5px solid #f75d5d;
+   box-shadow: 3px 3px 12px #aaa8a8;
+   position: relative;
+   overflow-wrap: break-word;
+   overflow: hidden;
+   transition: border-color 0.3s ease-in-out;
+}
+
+.book > h2 {
+   position: relative;
+   margin-bottom: 0.75rem;
+}
+
+.book > div {
+   position: absolute;
+   right: 1rem;
+   top: 1rem;
+}
+
+.book > p:nth-of-type(1) {
+   margin-bottom: 1rem;
+   font-weight: 500;
+}
+
+.book > p:nth-last-of-type(2) {
+   margin-top: auto;
+   margin-bottom: 0.5rem;
+}
+
+.book span:first-of-type {
+   font-size: 0.9rem;
+   color: #999;
+   font-weight: 500;
+   margin-right: 0.25rem;
+}
+
+.read {
+   border-color: #5ff35f;
+}
+
+/*  toggle switch */
+.toggle-out {
+   position: relative;
+   display: inline-block;
+   top: 0.25rem;
+   width: 1.85rem;
+   height: 1.15rem;
+   cursor: pointer;
+   margin-left: 0.25rem;
+   background: #f75d5d;
+   border-radius: 10px;
+   transition: all 0.3s ease-in-out;
+}
+
+.toggle-in {
+   position: absolute;
+   top: 2.5px;
+   left: 2.5px;
+   width: 50%;
+   height: 78%;
+   background: #fff;
+   border-radius: 50%;
+   transition: all 0.3s ease-in-out;
+}
+
+.toggled-out {
+   background: #5ff35f;
+}
+
+.toggled-in {
+   transform: translateX(75%);
+}
+
+/* trash icon */
+.trash {
+   display: inline-block;
+   margin-top: 0.5rem;
+   font-size: 1.25rem;
+   cursor: pointer;
+   transition: color 350ms ease-in-out;
+}
+
+.trash:hover {
+   color: #cf0202;
+}
+
+/* card corner book image */
+.bookimg {
+   position: absolute;
+   bottom: 1rem;
+   right: 1rem;
+   user-select: none;
+}
+
+/* add book card */
+.blank-book {
+   border-color: blue;
+   position: relative;
+   justify-content: center;
+   align-items: center;
+   font-size: 5rem;
+   cursor: pointer;
+   user-select: none;
+   transition: color 350ms ease-in-out;
+}
+
+.blank-book:hover {
+   color: #3232d4;
+}
+
+.blank-book > p {
+   position: absolute;
+   font-size: 1.05rem;
+   font-weight: 500;
+   bottom: 1rem;
+}
+
+.blank-book i, .blank-book i::before {
+   transform: translateY(-8px);
 }
