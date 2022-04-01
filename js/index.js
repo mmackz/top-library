@@ -137,7 +137,7 @@ resetConfirm.addEventListener("submit", (event) => {
 });
 
 function openForm() {
-   if (form.offsetParent === null) {
+   if (!form.classList.contains("show-form")) {
       form.style.display = "block";
       overlay.style.display = "block";
       document.body.style.overflow = "hidden";
@@ -160,3 +160,14 @@ function hideForm(){
       form.reset();
    }, 350);
 }
+
+function closeOnESC(event) {
+   if (event.code === 'Escape') {
+      if (form.classList.contains("show-form") || resetConfirm.classList.contains("show-form")) {
+         hideForm();
+      }  
+   }
+ }
+
+ document.body.onkeydown = closeOnESC;
+ 
