@@ -111,6 +111,24 @@ form {
    transition: transform 0.3s ease-in-out, opacity 0.35s ease-out;
 }
 
+@media (max-width: 640px) {
+   header button {
+      margin-right: 0.25rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.65rem;
+   }
+
+   .reset {
+      margin-right: 1rem;
+   }
+}
+
+@media (max-width: 380px) {
+   .buttons span {
+      display: none;
+   }
+}
+
 /* header logo */
 .logo {
    display: flex;
@@ -125,6 +143,22 @@ form {
 
 .logo > h1 {
    margin-left: 1rem;
+}
+
+@media (max-width: 480px) {
+   .logo {
+      padding: 1rem;
+      padding-right: 0.5rem;
+   }
+
+   .logo > h1 {
+      font-size: 1.5rem;
+   }
+
+   .logo > img {
+      width: 36px;
+      height: 37px;
+   }
 }
 
 /* form */
@@ -161,12 +195,28 @@ form {
    width: 100%;
    margin-top: 1rem;
    background: #52a3fa;
-   background: linear-gradient(135deg, hsla(211, 94%, 65%, 1) 0%, hsla(224, 78%, 34%, 1) 47%, hsla(232, 94%, 57%, 1) 100%);
-   background: -moz-linear-gradient(135deg, hsla(211, 94%, 65%, 1) 0%, hsla(224, 78%, 34%, 1) 47%, hsla(232, 94%, 57%, 1) 100%);
-   background: -webkit-linear-gradient(135deg, hsla(211, 94%, 65%, 1) 0%, hsla(224, 78%, 34%, 1) 47%, hsla(232, 94%, 57%, 1) 100%);
+   background: linear-gradient(
+      135deg,
+      hsla(211, 94%, 65%, 1) 0%,
+      hsla(224, 78%, 34%, 1) 47%,
+      hsla(232, 94%, 57%, 1) 100%
+   );
+   background: -moz-linear-gradient(
+      135deg,
+      hsla(211, 94%, 65%, 1) 0%,
+      hsla(224, 78%, 34%, 1) 47%,
+      hsla(232, 94%, 57%, 1) 100%
+   );
+   background: -webkit-linear-gradient(
+      135deg,
+      hsla(211, 94%, 65%, 1) 0%,
+      hsla(224, 78%, 34%, 1) 47%,
+      hsla(232, 94%, 57%, 1) 100%
+   );
 }
 
-.form > button:hover, .form > button:active {
+.form > button:hover,
+.form > button:active {
    box-shadow: 0 0 12px #52a3fa;
 }
 
@@ -234,7 +284,7 @@ input[type="checkbox"] {
    left: 2px;
 }
 
-.checkbox-container:focus-within > label {   
+.checkbox-container:focus-within > label {
    outline: 1px solid black;
    outline: -webkit-focus-ring-color auto 1px;
 }
@@ -269,7 +319,7 @@ input[type="checkbox"] {
 .checkbox-container > input[type="checkbox"]:checked + label {
    background-color: #62cd85;
    border-color: #62cd85;
- }
+}
 
 .checkbox-container > input[type="checkbox"]:checked + label:after {
    opacity: 1;
