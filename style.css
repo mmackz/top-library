@@ -234,6 +234,11 @@ input[type="checkbox"] {
    left: 2px;
 }
 
+.checkbox-container:focus-within > label {   
+   outline: 1px solid black;
+   outline: -webkit-focus-ring-color auto 1px;
+}
+
 .checkbox-container > label {
    box-sizing: content-box;
    background-color: #ffffff;

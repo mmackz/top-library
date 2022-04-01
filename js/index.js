@@ -157,5 +157,6 @@ function hideForm(){
       resetConfirm.classList = "";
       form.style = "";
       resetConfirm.style = "";
+      form.reset();
    }, 350);
 }
