@@ -4,7 +4,7 @@
   <img src="https://i.imgur.com/YqC9Fyv.png" width="600" alt="project pic">
 </p>
 <h2 align="center">
-<a href="https://mmackz.github.io/admin-dashboard/">DEMO</a>
+<a href="https://mmackz.github.io/top-library">DEMO</a>
 </h2>
 
 ### About the project
