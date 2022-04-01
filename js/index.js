@@ -123,11 +123,12 @@ resetBtn.addEventListener("click", (event) => {
    resetConfirm.style.display = "block";
    overlay.style.display = "block";
    setTimeout(() => {
-      resetConfirm.classList.add("show-form");
+      resetConfirm.classList.add("show-form", "form");
    }, 1);
 });
 
-resetConfirm.addEventListener("click", (event) => {
+resetConfirm.addEventListener("submit", (event) => {
+   event.preventDefault();
    event.stopPropagation();
    localStorage.clear();
    library = new Library();
@@ -141,7 +142,7 @@ function openForm() {
       overlay.style.display = "block";
       document.body.style.overflow = "hidden";
       setTimeout(() => {
-         form.classList.add("show-form");
+         form.classList.add("show-form", "form");
       }, 1);
    }
 }
