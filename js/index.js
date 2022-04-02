@@ -29,7 +29,6 @@ function removeBook(title) {
    localStorage.setItem("books", JSON.stringify(library.bookShelf));
 }
 
-let newBookEl;
 function displayBooks(books) {
    const booksEl = document.querySelector(".books");
    booksEl.innerHTML = "";
@@ -60,10 +59,9 @@ function displayBooks(books) {
       book.read && bookEl.classList.add("read");
    });
 
-   if (!newBookEl) {
-      createNewBookEl();
-   }
-   booksEl.appendChild(newBookEl);
+   // append new book button
+   const newBookEl = document.querySelector(".blank-book");
+   booksEl.appendChild(newBookEl ? newBookEl : createNewBookEl());
 }
 
 function createNewBookEl() {
@@ -71,7 +69,7 @@ function createNewBookEl() {
    el.classList.add("book", "blank-book");
    el.innerHTML = `<i class="fa-solid fa-plus"></i>
                           <p>Add a new book</p>`;
-   newBookEl = el;
+   return el;
 }
 
 function toggle(el) {
